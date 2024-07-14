@@ -7,7 +7,7 @@ export const AppContainer = styled.div`
   align-items: center;
 `
 export const SuperAppContainer = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   background-color: #223a5f;
   padding: 20px;
 `
@@ -30,7 +30,7 @@ export const ScoreCardContainer = styled.div`
 `
 
 export const ScoreViewContainer = styled.div`
-  height: 120px;
+  height: 110px;
   width: 150px;
   border: 9px;
   background-color: #ffffff;
@@ -82,12 +82,19 @@ export const ImgContainer = styled(DivContainer)`
 
 export const ModalContainer = styled.div``
 
-export const PlayButtons = styled.div`
+export const PlayButtons = styled.ul`
   width: 500px;
   text-align: center;
   margin: 0;
-  height: 450px;
-  margin-top: 5%;
+  min-height: 450px;
+  margin-top: 3%;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`
+export const ResultContainer = styled.div`
+  min-height: 470px;
 `
 
 export const RulesButton = styled.button`
@@ -101,7 +108,8 @@ export const RulesButton = styled.button`
   font-weight: 500;
   cursor: pointer;
   outline: none;
+  //   margin: 0;
 `
 export const GeneratedContainer = styled.div`
-  height: 450px;
+  height: 445px;
 `
