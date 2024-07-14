@@ -22,16 +22,29 @@ import {
   SuperAppContainer,
   PlayButtons,
   RulesButton,
+  ResultContainer,
 } from './styledComponents'
+import {ImgTag} from '../GameComponent/styledComponents'
 
 class RockPaperScissors extends Component {
-  state = {score: 0, isGenerated: false}
+  state = {score: 0, isGenerated: false, imageId: '', generatedId: ''}
 
-  generateGame = () => {
-    // const generatedNumber = Math.floor(Math.random() * 3)
+  generateGame = id => {
+    const generatedNumber = Math.floor(Math.random() * 3)
+    console.log(generatedNumber, id)
     this.setState(prevState => ({
       isGenerated: !prevState.isGenerated,
+      imageId: id,
+      generatedId: generatedNumber,
     }))
+  }
+
+  resultView = () => {
+    const {imageId, generatedId} = this.state
+    const {choicesList} = this.props
+    const filterImg = choicesList.filter(eachImg => eachImg.id === generatedId)
+    console.log(filterImg)
+    console.log(choicesList[imageId].imageUrl)
   }
 
   render() {
@@ -53,7 +66,10 @@ class RockPaperScissors extends Component {
             </ScoreCardContainer>
           </ScoreContainer>
           {isGenerated === true ? (
-            <h1>Generated</h1>
+            <ResultContainer>
+              <h1>Generated</h1>
+              {this.resultView()}
+            </ResultContainer>
           ) : (
             <PlayButtons>
               {choicesList.map(item => (
