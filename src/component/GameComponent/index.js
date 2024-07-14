@@ -1,4 +1,4 @@
-import {ImgTag} from './styledComponents'
+import {ImgTag, GameOptionButton, OptionsList} from './styledComponents'
 
 const GameComponent = props => {
   const {details, generateGame} = props
@@ -8,9 +8,11 @@ const GameComponent = props => {
     generateGame(id)
   }
   return (
-    <>
-      <ImgTag src={imageUrl} onClick={onGenerateGame} />
-    </>
+    <OptionsList>
+      <GameOptionButton type="button" onClick={onGenerateGame}>
+        <ImgTag src={imageUrl} alt={id} />
+      </GameOptionButton>
+    </OptionsList>
   )
 }
 
